@@ -262,7 +262,7 @@ legend("topleft", pch=19, col=plot.colors, legend=c("I. setosa", "I. versicolor"
 #------------
 # We can model the mean sepal length of the three species using a no-intercept linear model. That is, we force the intercept to be zero, and the mean sepal length of each of the 3 levels of the predictor (corresponding to the Iris species) are estimated as the offsets from zero.
 # Suppress the intercept by subtracting 1 from the right hand side of the formula
-model2 <- lm(Sepal.Length ~ Species, data=iris)
+model2 <- lm(Sepal.Length ~ Species - 1, data=iris)
 
 bar.heights <- predict(model2, newdata=data.frame(Species=c("setosa", "versicolor", "virginica")))
 
