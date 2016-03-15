@@ -2,7 +2,7 @@
 ###	An interactive tutorial for the Davis R Users Group meeting on April 24, 2015
 ###
 ### Date created: 20150418
-### Last updated: 20151029
+### Last updated: 20160315
 ###
 ### Author: Michael Koontz
 ### Email: mikoontz@gmail.com
@@ -21,8 +21,8 @@
 ###		8) Error bars (Line 274)
 ###
 ### Intermediate methods
-###   	1) Using other graphics devices like pdf() (Line 324)
-###   	2) Using par() for multipanel plots (Line 380) 
+###   1) Using other graphics devices like pdf() (Line 324)
+###   2) Using par() for multipanel plots (Line 380) 
 ###		3) Using par() for margin adjustments (Line 438)
 ###		4) Using axis() and mtext() (Line 484)
 ###		5) Pretty print from plotmath (Line 601)
@@ -260,7 +260,8 @@ legend("topleft", pch=19, col=plot.colors, legend=c("I. setosa", "I. versicolor"
 #------------
 # Barplots
 #------------
-
+# We can model the mean sepal length of the three species using a no-intercept linear model. That is, we force the intercept to be zero, and the mean sepal length of each of the 3 levels of the predictor (corresponding to the Iris species) are estimated as the offsets from zero.
+# Suppress the intercept by subtracting 1 from the right hand side of the formula
 model2 <- lm(Sepal.Length ~ Species, data=iris)
 
 bar.heights <- predict(model2, newdata=data.frame(Species=c("setosa", "versicolor", "virginica")))
@@ -276,10 +277,10 @@ barplot(bar.heights, names.arg=c("I. setosa", "I. versicolor", "I. virginica"), 
 #---------------
 # Adding error bars to our barplot. These can be added to scatter plots in a similar way.
 
-# We'll plot error bars representing 5 standard errors so you can see them more easily.
+# We'll plot error bars representing 2 standard errors so you can see them more easily.
 
 d <- summary(model2)
-CI <- 5 * coef(d)[ ,'Std. Error']
+CI <- 2 * coef(d)[ ,'Std. Error']
 lwr <- bar.heights - CI
 upr <- bar.heights + CI
 
