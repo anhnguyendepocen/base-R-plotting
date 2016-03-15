@@ -6,4 +6,6 @@ https://www.youtube.com/watch?v=wzKnU2ryT60&feature=youtu.be
 
 The purpose was to collate all of my most frequently used plotting techniques
 using only base R graphics. ggplot2 is great, and base R plotting is great,
-too! Remember: All data visualization is cool. Plot-shaming is not cool.
+too!
+
+Remember: All data visualization is cool. Plot-shaming is not cool.
